@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
+<link rel="icon" href="http://[percorso]/favicon.ico" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APIX - Accesso Clienti</title>
+    <title>APIX - Client Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #2e8b57; /* Dark Green */
             margin: 0;
             padding: 0;
             display: flex;
@@ -24,9 +25,22 @@
             width: 100%;
             max-width: 400px;
         }
-        h1 {
-            color: #333;
+        .title-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff;
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
             margin-bottom: 20px;
+        }
+        .title-bar img {
+            margin-right: 10px;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0;
         }
         .login-container form {
             display: flex;
@@ -61,21 +75,24 @@
     </style>
 </head>
 <body>
-
 <div class="login-container">
-    <h1>APIX - Accesso Clienti</h1>
+    <!-- Title bar with icon -->
+    <div class="title-bar">
+        <img src="http://apix.altervista.org/mobile-banking.png" alt="Bank Icon" width="40">
+        <h1>APIX - Client Login</h1>
+    </div>
 
     <form id="loginForm">
-        <input type="text" id="username" placeholder="Username / Nome utente" required>
+        <input type="text" id="username" placeholder="Username" required>
         <input type="password" id="password" placeholder="Password" required>
-        <input type="submit" value="Accedi / Login">
+        <input type="submit" value="Login">
     </form>
 
     <div id="errorMessage" class="error-message"></div>
 </div>
 
 <script>
-    // Credenziali predefinite (username e password)
+    // Predefined credentials (username and password)
     const correctUsername = "A1B2C3";
     const correctPassword = "X9Y8Z7";
 
@@ -86,15 +103,14 @@
         const password = document.getElementById("password").value;
 
         if (username === correctUsername && password === correctPassword) {
-            // Reindirizza alla pagina del conto bancario se le credenziali sono corrette
-            window.location.href = "conto.html";
+            // Redirect to the bank account page if credentials are correct
+            window.location.href = "account.html";
         } else {
-            // Mostra un messaggio di errore se le credenziali sono errate
-            document.getElementById("errorMessage").textContent = "Username o Password non corretti.";
+            // Show an error message if credentials are incorrect
+            document.getElementById("errorMessage").textContent = "Incorrect Username or Password.";
         }
     });
 </script>
 
 </body>
 </html>
-
